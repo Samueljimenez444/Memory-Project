@@ -14,6 +14,7 @@ public class Main {
 		System.out.println("The objetive is to undercover all the table.");
 		
 		
+		
 	}
 
 }
