@@ -2,7 +2,7 @@ package game;
 
 public class PlayerTable {
 	
-	static char[][] playerTable;
+	static String[][] playerTable;
 	
 	public PlayerTable(int size) {
 		createPlayerTable(size);
@@ -11,32 +11,29 @@ public class PlayerTable {
 	
 	public void showPositions(int x1, int y1, int x2, int y2) {
 		
-		// int number1 = HiddenTable.getNumber(x1, y1);
-		// int number2 = HiddenTable.getNumber(y1, y2);
+		int number1 = HiddenTable.getNumber(x1, y1);
+		int number2 = HiddenTable.getNumber(x2, y2);
 		
-		// int aux1 = playerTable[x1][y1];
-		// int aux2 = playerTable[x2][y2];
+		playerTable[x1][y1] = String.valueOf(number1);
+		playerTable[x2][y2] = String.valueOf(number2);
 		
-		// playerTable[x1][y1] = number1;
-		// playerTable[x2][y2] = number2;
+		printTable();
 		
-		// printTable();
-		
-		// if (number1 != number2) {
-		// 	playerTable[x1][y1] = aux1;
-		// 	playerTable[x2][y2] = aux2;
-		//	printTable();
-		// }
+		if (number1 != number2) {
+			playerTable[x1][y1] = "#";
+			playerTable[x2][y2] = "#";
+			printTable();
+		}
 	}
 	
 	
-	private char[][] createPlayerTable(int size) {
+	private String[][] createPlayerTable(int size) {
 		
-		playerTable = new char[size][size];
+		playerTable = new String[size][size];
 		
 		for (int i = 0 ; i > playerTable.length ; i++) {
 			for (int j = 0 ; j > size ; j++) {
-				playerTable[i][j] = '#';
+				playerTable[i][j] = "#";
 			}
 		}
 		
