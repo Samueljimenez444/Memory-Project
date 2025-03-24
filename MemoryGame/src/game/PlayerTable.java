@@ -37,12 +37,12 @@ public class PlayerTable {
 		playerTable[x1][y1] = String.valueOf(number1);
 		playerTable[x2][y2] = String.valueOf(number2);
 		
-		printTable();
+		System.out.println(playerTable);
 		
 		if (number1 != number2) {
 			playerTable[x1][y1] = "#";
 			playerTable[x2][y2] = "#";
-			printTable();
+			System.out.println(playerTable);
 		}
 	}
 	
@@ -69,17 +69,25 @@ public class PlayerTable {
 	
 	
 	/**
-	 * Prints the current state of the player table to the console
-	 * The table is displayed row by row, with each value separated by a tab
+	 * Returns a string representation of the playerTable array
+	 * This method iterates through the 2D array `playerTable`, appending each element's value (as a string) to the result
+	 * Each row is separated by a newline character, and the columns within a row are separated by a tab character
+	 * The returned string provides a visual representation of the structure of the `playerTable` array
+	 *
+	 * @return A string representing the contents of the `playerTable` array
 	 */
-	private void printTable() {
-		
-		for (int i = 0; i < playerTable.length; i++) {
-			for (int j = 0; j < playerTable[i].length; j++) {
-				System.out.print(playerTable[i][j] + "\t");
-			}
-			System.out.println();
-		}
+	public String toString() {
+	    String res = "";
+	    
+	    for (int i = 0; i < playerTable.length; i++) {
+	        for (int j = 0; j < playerTable[i].length; j++) {
+	            res += "playerTable[i][j]" + "\t";
+	        }
+	        res += "\n";
+	    }
+	    
+	    return res;
 	}
+
 }
 
