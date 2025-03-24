@@ -9,22 +9,22 @@ public class PlayerTable {
 	}
 	
 	
-//	public void showPositions(int x1, int y1, int x2, int y2) {
-//		
-//		int number1 = HiddenTable.getNumber(x1, y1);
-//		int number2 = HiddenTable.getNumber(x2, y2);
-//		
-//		playerTable[x1][y1] = String.valueOf(number1);
-//		playerTable[x2][y2] = String.valueOf(number2);
-//		
-//		printTable();
-//		
-//		if (number1 != number2) {
-//			playerTable[x1][y1] = "#";
-//			playerTable[x2][y2] = "#";
-//			printTable();
-//		}
-//	}
+	public void showPositions(int x1, int y1, int x2, int y2) {
+		
+		int number1 = HiddenTable.getNumber(x1, y1);
+		int number2 = HiddenTable.getNumber(x2, y2);
+		
+		playerTable[x1][y1] = String.valueOf(number1);
+		playerTable[x2][y2] = String.valueOf(number2);
+		
+		printTable();
+		
+		if (number1 != number2) {
+			playerTable[x1][y1] = "#";
+			playerTable[x2][y2] = "#";
+			printTable();
+		}
+	}
 	
 	
 	private String[][] createPlayerTable(int size) {
