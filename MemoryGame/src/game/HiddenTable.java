@@ -53,7 +53,7 @@ public class HiddenTable {
 		return hiddenTable;
 	}
 	
-	public int getNumber(int x1, int y1) {
+	public static int getNumber(int x1, int y1) {
 		
 		return hiddenTable[x1][y1];
 		
