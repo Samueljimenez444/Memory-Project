@@ -2,41 +2,61 @@ package game;
 
 public class PlayerTable {
 	
-	static char[][] playerTable;
+	static String[][] playerTable;
 	
 	public PlayerTable(int size) {
 		createPlayerTable(size);
 	}
 	
 	
-	public void showPositions(int x1, int y1, int x2, int y2) {
+	public void showPositions(int x1, int y1, int x2, int y2, HiddenTable hiddenTable) {
 		
-		// int number1 = HiddenTable.getNumber(x1, y1);
-		// int number2 = HiddenTable.getNumber(y1, y2);
+		 
+		int number1 = hiddenTable.getNumber(x1, y1);
+		int number2 = hiddenTable.getNumber(x2, y2);
 		
-		// int aux1 = playerTable[x1][y1];
-		// int aux2 = playerTable[x2][y2];
 		
-		// playerTable[x1][y1] = number1;
-		// playerTable[x2][y2] = number2;
+		playerTable[x1][y1] = String.valueOf(number1);
+		playerTable[x2][y2] = String.valueOf(number2);
 		
-		// printTable();
+		printTable();
 		
-		// if (number1 != number2) {
-		// 	playerTable[x1][y1] = aux1;
-		// 	playerTable[x2][y2] = aux2;
-		//	printTable();
-		// }
+		if (number1 != number2) {
+			playerTable[x1][y1] = "#";
+			playerTable[x2][y2] = "#";
+		}
+	}
+	
+	public boolean completedTable() {
+		
+		boolean completed = true;
+		
+		for (int i = 0; i < playerTable.length && completed; i++) {
+			
+			for (int j = 0; j < playerTable[0].length && completed; j++) {
+				
+				if(playerTable[i][j].equals("#")) {
+					
+					completed = false;
+					
+				}
+				
+			}
+			
+		}
+		
+		return completed;
+		
 	}
 	
 	
-	private char[][] createPlayerTable(int size) {
+	private String[][] createPlayerTable(int size) {
 		
-		playerTable = new char[size][size];
+		playerTable = new String[size][size];
 		
-		for (int i = 0 ; i > playerTable.length ; i++) {
-			for (int j = 0 ; j > size ; j++) {
-				playerTable[i][j] = '#';
+		for (int i = 0 ; i < playerTable.length ; i++) {
+			for (int j = 0 ; j < size ; j++) {
+				playerTable[i][j] = "#";
 			}
 		}
 		
@@ -44,11 +64,11 @@ public class PlayerTable {
 	}
 	
 	
-	private void printTable() {
+	public void printTable() {
 		
 		for (int i = 0 ; i < playerTable.length ; i++) {
 			for (int j = 0 ; j < playerTable[i].length ; j++) {
-				System.out.println(playerTable[i][j] + "\t");
+				System.out.print(playerTable[i][j] + "\t");
 			}
 			System.out.println();
 		}

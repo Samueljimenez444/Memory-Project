@@ -11,11 +11,17 @@ public class HiddenTable {
 	public HiddenTable(int n) {
 		
 		hiddenTable = new int[n][n];
-		HiddenTable.createTable(n);
+		createTable(n);
+		
+	}
+	
+	public int[][] getTable() {
+		
+		return hiddenTable;
 		
 	}
 
-	static public int[][] createTable(int n) {
+	public int[][] createTable(int n) {
 
 		int posX;
 		int posY;
@@ -49,7 +55,7 @@ public class HiddenTable {
 			}
 
 		}
-		
+		 
 		return hiddenTable;
 	}
 	
@@ -57,6 +63,27 @@ public class HiddenTable {
 		
 		return hiddenTable[x1][y1];
 		
+	}
+	
+	public String toString() {
+		
+		String info = "";
+		String number;
+		
+		for (int i = 0; i < HiddenTable.hiddenTable.length; i++) {
+			
+			for (int j = 0; j < HiddenTable.hiddenTable[0].length; j++) {
+				
+				number = String.valueOf(HiddenTable.hiddenTable[i][j]);
+				info += (number + "\t");
+				
+			}
+			
+			info += "\n";
+			
+		}
+		
+		return info;
 	}
 	
 
